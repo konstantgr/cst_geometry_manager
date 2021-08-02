@@ -16,6 +16,7 @@ Install
 =======
 For simple installation use pip: 
 ::
+
    pip install cst-geometry
 
 
@@ -24,7 +25,7 @@ Usage
 
 During using scripts or notebooks for creating projects all the CST Microwave studio windows must be closed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To create your own geometry use ``Wire`` and ``Geometry`` classes. ``Wire`` object initializing using start point ``r0``,finish point ``r1`` and its radius. Geometry object initializing using array of ``Wires`` objects. ``Geometry`` object has methods ``export_geometry`` for export .txt file and ``create_cst_project`` for creating project in CST Microwave Studio.
+To create your own geometry use ``Wire`` and ``Geometry`` classes. ``Wire`` object initializing using start point ``r0``, finish point ``r1`` and its radius. Geometry object initializing using array of ``Wires`` objects. ``Geometry`` object has methods ``export_geometry`` for export .txt file and ``create_cst_project`` for creating project in CST Microwave Studio.
 
 .. code:: python
 
