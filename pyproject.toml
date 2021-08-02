@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "cst_geometry"
-version = "0.0.10"
-description = "Package for modelling in CST Microwave studio using python"
-authors = ["konstantgr <60608301+konstantgr@users.noreply.github.com>"]
+version = "0.1.0"
+description = "Package for modeling in CST Microwave studio using python"
+authors = ["konstantgr <konstantin.grotov@metalab.ifmo.ru>"]
 license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/konstantgr/cst_geometry_manager"
 
 [tool.poetry.dependencies]
 python = "^3.7"

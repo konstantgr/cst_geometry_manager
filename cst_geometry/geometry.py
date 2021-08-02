@@ -42,6 +42,7 @@ class Geometry:
 
         path_to_script = os.path.abspath('script.bas'); print(f'"{path_to_CST_DE}" -m "{path_to_script}"')
         stream = os.popen(f'"{path_to_CST_DE}" -m "{path_to_script}"')
-        script.remove_script()
+
+        # script.remove_script()
         return stream.read()
 
