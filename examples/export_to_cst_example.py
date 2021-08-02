@@ -1,10 +1,8 @@
-import sys
+from cst_geometry import Wire, Geometry
+from cst_geometry import simple_geometries
 
-sys.path.append("..")
-from cst_geometry_manager import Wire, Geometry
-from cst_geometry_manager import simple_geometries
-
-path_to_CST_DE = "C:\Program Files (x86)\CST Studio Suite 2021\CST DESIGN ENVIRONMENT.exe"
+path_to_CST_DE = "ABSOLUTE\\PATH\\TO\\CST DESIGN ENVIRONMENT.exe"
+route_to_folder = "ABSOLUTE\\PATH\\TO\\FOLDER"
 
 
 def circular_geometry_equal_wires(length, number_of_wires, radius):
@@ -17,10 +15,12 @@ def circular_geometry_equal_wires(length, number_of_wires, radius):
 
 
 def main():
-    circular_geometry = circular_geometry_equal_wires(2, 4, 4)
+    circular_geometry = circular_geometry_equal_wires(2, 18, 4)
     output = circular_geometry.create_cst_project(
-        name='circular_geometry',
-        path_to_CST_DE=path_to_CST_DE
+        name="circular_geometry",
+        path_to_CST_DE=path_to_CST_DE,
+        path_to_geometry_folder=route_to_folder,
+        path_to_CST_project=route_to_folder
     )
 
     print(output)
