@@ -1,0 +1,17 @@
+{
+    "parameters": [
+        {
+            "descr": "wire radius",
+            "expr": "0.10000000000000001",
+            "name": "r",
+            "value": "0.10000000000000001"
+        },
+        {
+            "descr": "Number of wires",
+            "expr": "8",
+            "name": "N",
+            "value": "8"
+        }
+    ],
+    "version": 1
+}
