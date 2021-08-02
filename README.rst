@@ -15,43 +15,50 @@ Features
 Usage
 -----
 
+During using scripts or notebooks for creating projects all the CST Microwave studio windows must be closed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. code:: python
 
     # Path to CST DESIGN ENVIRONMENT.exe
     path_to_CST_DE = "Absolute\Path\To\CST DESIGN ENVIRONMENT.exe"
 
+    # Route to folder with .txt geometries and CST projects
+    route_to_folder = "Absolute\Path\To\FOLDER"
+
 
     def circular_geometry_equal_wires(length, number_of_wires, radius):
-        lengths = [length for i in range(number_of_wires)]
+    	lengths = [length for i in range(number_of_wires)]
 
-        circular_geometry = simple_geometries.get_circular_geometry(
-            radius=radius, lengths_of_wires=lengths
-        )
-        return circular_geometry
+    	circular_geometry = simple_geometries.get_circular_geometry(
+        		radius=radius, lengths_of_wires=lengths, wire_radius=1e-3, delta_angle=0
+    	)
+    	return circular_geometry
 
 
-    circular_geometry = circular_geometry_equal_wires(2, 4, 4)
-    circular_geometry.create_cst_project(
-        name='circular_geometry',
-        path_to_CST_DE=path_to_CST_DE
+    # Creating an array of 18 vertical aligned wires with length 2
+    # on of imaginary cylinder with radius 4
+    circular_geometry = circular_geometry_equal_wires(2, 18, 4)
+    output = circular_geometry.create_cst_project(
+        name="circular_geometry",
+        path_to_CST_DE=path_to_CST_DE,
+        path_to_geometry_folder=route_to_folder,
+        path_to_CST_project=route_to_folder
     )
 
-This code creates simple geometry contain 4 wires equally distributed on
+
+This code creates simple geometry contain 18 wires equally distributed on
 imaginary cylinder. Then ``create_cst_project`` method creates project.
 To start using scripts firstly need to change ``path_to_CST_DE``
 variable. CST project create in cst\_project folder.
 
-During using scripts or notebooks for creating projects all the CST Microwave studio windows must be closed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Examples
 --------
 
-Several examples located in notebooks folder.
-``make_geometries_example.ipynb`` shows how create sinmple geometries
-using ``Wire`` and ``Geometry`` classes. ``export_to_cst_example.ipynb``
-shows how create a CST project using jupyter notebook. In ``examples``
-also located a script shows how create a CST project without using
-jupyter notebook.
+.. image:: examples/CST_example.gif
 
-\`
+Several examples with CST projects are located in ``examples/`` folder.
+
+
