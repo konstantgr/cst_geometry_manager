@@ -12,11 +12,41 @@ Features
 -  Convenient data structure for creating your own unique complex
    geometries from wires
 
+Install
+=======
+For simple installation use pip: 
+::
+   pip install cst-geometry
+
+
 Usage
 -----
 
 During using scripts or notebooks for creating projects all the CST Microwave studio windows must be closed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To create your own geometry use ``Wire`` and ``Geometry`` classes. ``Wire`` object initializing using start point ``r0``,finish point ``r1`` and its radius. Geometry object initializing using array of ``Wires`` objects. ``Geometry`` object has methods ``export_geometry`` for export .txt file and ``create_cst_project`` for creating project in CST Microwave Studio.
+
+.. code:: python
+   import numpy as np
+   from cst_geometry import Wire, Geometry
+
+
+   def get_circular_geometry(radius, lengths_of_wires, wire_radius=1e-3, delta_angle=0):
+       number_of_wires = len(lengths_of_wires)
+       angles = np.linspace(0, 2 * np.pi, number_of_wires, endpoint=False) + delta_angle
+
+       wires = []
+       for i, length in enumerate(lengths_of_wires):
+           phi = angles[i]
+           wire = Wire(
+               r0=(radius * np.cos(phi), radius * np.sin(phi), -length / 2),
+               r=(radius * np.cos(phi), radius * np.sin(phi), length / 2),
+               radius=wire_radius
+           )
+           wires.append(wire)
+
+       return Geometry(wires)
+
 
 .. code:: python
 
