@@ -25,7 +25,15 @@ Usage
 
 During using scripts or notebooks for creating projects all the CST Microwave studio windows must be closed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To create your own geometry use ``Wire`` and ``Geometry`` classes. ``Wire`` object initializing using start point ``r0``, finish point ``r1`` and its radius. Geometry object initializing using array of ``Wires`` objects. ``Geometry`` object has methods ``export_geometry`` for export .txt file and ``create_cst_project`` for creating project in CST Microwave Studio.
+Wire
+------------------
+``Wire`` objects serves to create ``Geometry`` objects. Wire object initialized using start point of wire ``point0``, finish point of wire ``point1`` and its radius ``radius``. As needed after initializing you can use ``length`` property. ``point0`` and ``point1`` are vectors of cartesian coordinates.
+
+Geometry
+------------------
+``Geometry`` object allows to easily export geometry to CST Microwave Studio or just export .txt file with geometry parameters. For initializing ``Geometry`` object you should pass a list of ``Wire`` objects. ``create_cst_project`` is a method for creating a .cst project with geometry model. ``export_geometry`` is a method for exporting geometry as .txt file.
+
+To create your own geometry use ``Wire`` and ``Geometry`` classes.
 
 .. code:: python
 
