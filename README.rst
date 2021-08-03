@@ -29,34 +29,36 @@ To create your own geometry use ``Wire`` and ``Geometry`` classes. ``Wire`` obje
 
 .. code:: python
 
-    import numpy as np
-    from cst_geometry import Wire, Geometry
+   import numpy as np
+   from cst_geometry import Wire, Geometry
 
 
-      def get_circular_geometry(radius, lengths_of_wires, wire_radius=1e-3, delta_angle=0):
-          number_of_wires = len(lengths_of_wires)
-          angles = np.linspace(0, 2 * np.pi, number_of_wires, endpoint=False) + delta_angle
+   def get_circular_geometry(radius, lengths_of_wires, wire_radius=1e-3, delta_angle=0):
+       number_of_wires = len(lengths_of_wires)
+       angles = np.linspace(0, 2 * np.pi, number_of_wires, endpoint=False) + delta_angle
 
-          wires = []
-          for i, length in enumerate(lengths_of_wires):
-              phi = angles[i]
-              wire = Wire(
-                  r0=(radius * np.cos(phi), radius * np.sin(phi), -length / 2),
-                  r=(radius * np.cos(phi), radius * np.sin(phi), length / 2),
-                  radius=wire_radius
-              )
-              wires.append(wire)
+       wires = []
+       for i, length in enumerate(lengths_of_wires):
+           phi = angles[i]
+           wire = Wire(
+               r0=(radius * np.cos(phi), radius * np.sin(phi), -length / 2),
+               r=(radius * np.cos(phi), radius * np.sin(phi), length / 2),
+               radius=wire_radius
+           )
+           wires.append(wire)
 
-          return Geometry(wires)
+       return Geometry(wires)
 
 Examples
 --------
 
 .. code:: python
-
+   
+    from cst_geometry import simple_geometries
+    
     # Path to CST DESIGN ENVIRONMENT.exe
     path_to_CST_DE = "Absolute\Path\To\CST DESIGN ENVIRONMENT.exe"
-
+   
     # Route to folder with .txt geometries and CST projects
     route_to_folder = "Absolute\Path\To\FOLDER"
 
