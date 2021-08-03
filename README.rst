@@ -53,12 +53,12 @@ Examples
 --------
 
 .. code:: python
-
+   
     from cst_geometry import simple_geometries
-
+    
     # Path to CST DESIGN ENVIRONMENT.exe
     path_to_CST_DE = "Absolute\Path\To\CST DESIGN ENVIRONMENT.exe"
-
+   
     # Route to folder with .txt geometries and CST projects
     route_to_folder = "Absolute\Path\To\FOLDER"
 
