@@ -11,8 +11,8 @@ def get_circular_geometry(radius, lengths_of_wires, wire_radius=1e-3, delta_angl
     for i, length in enumerate(lengths_of_wires):
         phi = angles[i]
         wire = Wire(
-            r0=(radius * np.cos(phi), radius * np.sin(phi), -length / 2),
-            r=(radius * np.cos(phi), radius * np.sin(phi), length / 2),
+            point0=(radius * np.cos(phi), radius * np.sin(phi), -length / 2),
+            point1=(radius * np.cos(phi), radius * np.sin(phi), length / 2),
             radius=wire_radius
         )
         wires.append(wire)
@@ -37,8 +37,8 @@ def get_cubic_grid_geometry(tau, lengths_of_wires, wire_radius=1e-3):
             x = tau * j
             y = tau * i
             wire = Wire(
-                r0=(x, y, -lengths_of_wires[i][j] / 2),
-                r=(x, y, lengths_of_wires[i][j] / 2),
+                point0=(x, y, -lengths_of_wires[i][j] / 2),
+                point1=(x, y, lengths_of_wires[i][j] / 2),
                 radius=wire_radius
             )
             wires.append(wire)
@@ -56,8 +56,8 @@ def get_shortened_taper_geometry(radius_inner, radius_outer, number_of_wires,
     for i in range(number_of_wires):
         phi = angles[i]
         wire = Wire(
-            r0=(radius_outer * np.cos(phi), radius_outer * np.sin(phi), 0),
-            r=(radius_inner * np.cos(phi), radius_inner * np.sin(phi), taper_height),
+            point0=(radius_outer * np.cos(phi), radius_outer * np.sin(phi), 0),
+            point1=(radius_inner * np.cos(phi), radius_inner * np.sin(phi), taper_height),
             radius=wire_radius
         )
         wires.append(wire)

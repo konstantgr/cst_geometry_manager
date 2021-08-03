@@ -1,8 +1,8 @@
 from cst_geometry import Wire, Geometry
 from cst_geometry import simple_geometries
 
-path_to_CST_DE = "ABSOLUTE\\PATH\\TO\\CST DESIGN ENVIRONMENT.exe"
-route_to_folder = "ABSOLUTE\\PATH\\TO\\FOLDER"
+path_to_CST_DE = r"ABSOLUTE\\PATH\\TO\\CST DESIGN ENVIRONMENT.exe"
+route_to_folder = r"ABSOLUTE\\PATH\\TO\\FOLDER"
 
 
 def circular_geometry_equal_wires(length, number_of_wires, radius):

@@ -3,9 +3,9 @@ from ._script import Script
 
 
 class Wire:
-    def __init__(self, r0, r, radius):
-        self.x0, self.y0, self.z0 = r0
-        self.x1, self.y1, self.z1 = r
+    def __init__(self, point0, point1, radius):
+        self.x0, self.y0, self.z0 = point0
+        self.x1, self.y1, self.z1 = point1
         self.radius = radius
 
     @property
