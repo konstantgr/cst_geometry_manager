@@ -69,31 +69,13 @@ For i=0 To number_of_wires - 1
 		  t = t &   ".Alpha ""75""" & vbCrLf
 		  t = t &   ".Beta ""35""" & vbCrLf
 		  t = t &   ".RelativeCenterPosition ""0.5""" & vbCrLf
-		   t = t &  ".SolidWireModel ""False""" & vbCrLf
-		  t = t &   ".Termination ""Extended""" & vbCrLf
+		   t = t &  ".SolidWireModel ""True""" & vbCrLf
+		  t = t &   ".Termination ""Natural""" & vbCrLf
 	     t = t & ".add" & vbCrLf
 	t = t & "End With" & vbCrLf
 Next
 	AddToHistory("make geometry", t)
 
-'t = ""
-'For i=0 To number_of_wires - 1
-	't = t & "With Cylinder" & vbCrLf
-	     't = t & ".Reset" & vbCrLf
-	     't = t & ".Name ""c" & CStr(i) & """" & vbCrLf
-	     't = t & ".Component ""Geometry""" & vbCrLf
-	     't = t & ".Material ""PEC""" & vbCrLf
-	     't = t & ".OuterRadius ""r""" & vbCrLf
-	     't = t & ".InnerRadius ""0""" & vbCrLf
-	     't = t & ".Axis ""y""" & vbCrLf
-	     't = t & ".Yrange " & CStr(z0(i)) & ", " &  CStr(z1(i)) & vbCrLf
-	     't = t & ".Xcenter " & CStr(y0(i)) & vbCrLf
-	     't = t & ".Zcenter " & CStr(x0(i)) & vbCrLf
-	     't = t & ".Segments ""0""" & vbCrLf
-	     't = t & ".Create" & vbCrLf
-	't = t & "End With" & vbCrLf
-'Next
-	'AddToHistory("make cubic geometry", t)
 
 AddToHistory("make planewave", "With PlaneWave" & vbCrLf & _
      ".Reset" & vbCrLf & _
